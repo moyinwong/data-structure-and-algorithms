@@ -21,9 +21,6 @@ public class SinglyLinkedList<T> {
 
 
     public static void main(String[] args) {
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.poll()
-
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.addToFront(4);
         list.addToFront(3);
@@ -40,22 +37,18 @@ public class SinglyLinkedList<T> {
         System.out.println("Removed: " + list.removeFromFront() + " size: " + list.size);
         System.out.println("Removed: " + list.removeFromBack() + " size: " + list.size);
         System.out.println("Removed: " + list.removeFromBack() + " size: " + list.size);
-        System.out.println("After removing ------");
-        ArrayList<Integer> a = new ArrayList<>();
-        a.add(1);
-        a[0];
     }
 
-//    @Override
-//    public String toString() {
-//        SinglyLinkedListNode<T> current = head;
-//        StringBuilder res = new StringBuilder();
-//        while (current != null) {
-//            res.append(", ").append(current.getData());
-//            current = current.getNext();
-//        }
-//        return res.toString();
-//    }
+    @Override
+    public String toString() {
+        SinglyLinkedListNode<T> current = head;
+        StringBuilder res = new StringBuilder();
+        while (current != null) {
+            res.append(", ").append(current.getData());
+            current = current.getNext();
+        }
+        return res.toString();
+    }
 
     /**
      * Adds the element to the front of the list.

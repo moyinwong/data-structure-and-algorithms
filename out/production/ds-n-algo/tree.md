@@ -19,7 +19,7 @@ graph TD
 
 ## Classification of Trees
 
-![classification-of-trees.png](module2/classification-of-trees.png)
+![classification-of-trees.png](resources/classification-of-trees.png)
 
 ## 2-4 trees
 
@@ -55,7 +55,7 @@ graph TD
 
 #### Shapes of Binary Tree
 
-![shapes-of-binary-trees.png](module2/shapes-of-binary-trees.png)
+![shapes-of-binary-trees.png](resources/shapes-of-binary-trees.png)
 
 - NOTE: complete tree must have every level filled except for the last level. The last level must be filled from left to
   right with no gap between cousins

@@ -9,46 +9,9 @@ import java.util.LinkedList;
  * traversals of a tree.
  */
 public class Traversals<T extends Comparable<? super T>> {
-
-    public static void main(String[] args) {
-        TreeNode<Integer> root = new TreeNode<>(6);
-        TreeNode<Integer> one = new TreeNode<>(1);
-        TreeNode<Integer> two = new TreeNode<>(2);
-        TreeNode<Integer> five = new TreeNode<>(5);
-        one.setLeft(five);
-        root.setLeft(one);
-        root.setRight(two);
-
-        System.out.println("Nums of subtree is: " + countAllSubtrees(root));
-    }
-
     /**
      * DO NOT ADD ANY GLOBAL VARIABLES!
      */
-
-    public static <T extends Comparable<? super T>> int numsOfSubtrees(TreeNode<T> root) {
-        if (root == null) {
-            return 0;
-        }
-
-
-        int leftCount = numsOfSubtrees(root.getLeft());
-        int rightCount = numsOfSubtrees(root.getRight());
-        int totalCount = leftCount + rightCount + 1;
-        return totalCount;
-    }
-
-    public static int countAllSubtrees(TreeNode<Integer> root) {
-        if (root == null) {
-            return 0;
-        }
-
-        int subtreesRootedAtRoot = numsOfSubtrees(root);
-        int subtreesRootedAtLeft = countAllSubtrees(root.getLeft());
-        int subtreesRootedAtRight = countAllSubtrees(root.getRight());
-
-        return subtreesRootedAtRoot + subtreesRootedAtLeft + subtreesRootedAtRight;
-    }
 
     /**
      * Given the root of a binary search tree, generate a

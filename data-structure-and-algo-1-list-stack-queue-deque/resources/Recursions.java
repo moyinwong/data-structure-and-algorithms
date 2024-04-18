@@ -1,4 +1,4 @@
-package module1;
+package resources;
 
 import java.util.ArrayList;
 import java.util.Arrays;

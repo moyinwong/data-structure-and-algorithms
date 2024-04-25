@@ -1,4 +1,4 @@
-package resources;
+package assignment;
 
 import java.util.ArrayList;
 import java.util.Arrays;

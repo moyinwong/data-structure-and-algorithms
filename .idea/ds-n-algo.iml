@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/data-structure-and-algo-1-list-stack-queue-deque" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/data-structure-and-algo-2-tree-hashmap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/data-structure-and-algo-2-tree-hashmap/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/data-structure-and-algo-3-AVL-24-tree-sort" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -26,6 +26,24 @@
 - adaptive with last swapped optimization
 - memory, in place sort
 
+```java
+public <T extends Comparable<T>> void bubbleSort(T[] list) {
+    int stopIndex = list.length - 1;
+    while (stopIndex > 0) {
+        int lastSwapIndex = 0;
+        for (int i = 0; i < stopIndex; i++) {
+            if (list[i].compareTo(list[i + 1]) > 0) {
+                T temp = list[i];
+                list[i] = list[i + 1];
+                list[i + 1] = temp;
+                lastSwapIndex = i;
+            }
+        }
+        stopIndex = lastSwapIndex;
+    }
+}
+```
+
 ## Cocktail Shaker sort
 
 Just two bubble sort (front to back & back to front) per iteration
@@ -47,19 +65,30 @@ Just two bubble sort (front to back & back to front) per iteration
     - but it takes Cocktail Shaker sort 1.5 iteration (around 3 bubble sort) to sort it
 
 ```java
-public <T extends Comparable<T>> void bubbleSort(T[] list) {
-    int stopIndex = list.length - 1;
-    while (stopIndex > 0) {
-        int lastSwapIndex = 0;
-        for (int i = 0; i < stopIndex; i++) {
+public <T extends Comparable<T>> void cocktailShakerSort(T[] list) {
+    int start = 0;
+    int end = list.length - 1;
+    while (start < end) {
+        int lastSwappedIndex = start;
+        for (int i = start; i < end; i++) {
             if (list[i].compareTo(list[i + 1]) > 0) {
                 T temp = list[i];
                 list[i] = list[i + 1];
                 list[i + 1] = temp;
-                lastSwapIndex = i;
+                lastSwappedIndex = i;
             }
         }
-        stopIndex = lastSwapIndex;
+        end = lastSwappedIndex;
+
+        for (int j = end; end > start; j--) {
+            if (list[j].compareTo(list[j - 1]) < 0) {
+                T temp = list[j];
+                list[j] = list[j - 1];
+                list[j - 1] = temp;
+                lastSwappedIndex = j;
+            }
+        }
+        start = lastSwappedIndex;
     }
 }
 ```

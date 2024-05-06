@@ -65,7 +65,8 @@ public static HashMap<Character, Integer> buildLastOccurrenceMap(String pattern)
 
 - best
     - O(m), single occurrence
-    - O(mn), all occurrence
+    - O(m + n/m), all occurrence, sublinear if the last character of pattern doesn't exist in the text
+        - e.g. text: `aaaaaaaaaaaaaaaa`, pattern: `aaab`. we are only searching by `n/m` times
 - worst
     - o(mn), where the mismatch index is at 0. e.g. `text: aaaaaaaaaaaa, pattern: baaaa`
 
@@ -183,6 +184,14 @@ When moving to the right of the text
 - multiply the existing by the base, which promote all the existing characters to their new position in the head
 - add the hash of new character
 - `(oldHash - (oldChar * base ^ m - 1)) * base + newChar * base ^ 0`
+
+### Time Complexity
+
+- best
+    - O(m), single occurrence
+    - O(m + n), all occurrence
+- worst
+    - O(m + n), all occurrence
 
 ## Read further
 

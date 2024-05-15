@@ -12,9 +12,9 @@ class HashAndPower {
 public class PatternMatching {
 
     public static void main(String[] args) {
-        String text = "somethingcadbcasomethicadbca";
+        String text = "CCDDCCDNCCDCCCDDCNDCCC";
         String pattern = "bca";
-        System.out.println(Arrays.toString(rabinKarp(text, pattern)));
+        System.out.println(String.join(" ", Arrays.toString(buildFailureTable(text))));
     }
 
     public static int[] rabinKarp(String text, String pattern) {
@@ -108,6 +108,7 @@ public class PatternMatching {
         }
         return matchedIndexes.stream().mapToInt(Integer::intValue).toArray();
     }
+
 
     private static int[] buildFailureTable(String pattern) {
         int m = pattern.length();

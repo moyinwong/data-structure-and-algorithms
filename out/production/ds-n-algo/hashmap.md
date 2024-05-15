@@ -81,7 +81,7 @@ The index after hashing and compression may NOT be the final index where the pai
       Continue `original index + Prob i % table.length` until:
         1. Entry with the same key is found. Then update old value with new value
         2. `null` index is found. Store the entry at that index
-        3. First DEL marker is saved and encounter `null` index. Then store entry at DEL marker index (refer
+        3. First DEL marker is saved and later encounter `null` index. Then store entry at DEL marker index (refer
            to `remove`)
 - `search`
     - Compute the original index

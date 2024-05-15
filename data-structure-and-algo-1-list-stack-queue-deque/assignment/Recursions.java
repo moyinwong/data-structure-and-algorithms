@@ -7,9 +7,7 @@ import java.util.List;
 public class Recursions {
     public static void main(String[] args) {
         var nums = Arrays.asList(
-                2,
-                4,
-                8
+                1, 7, 3, 5, 2, 8, 10, 24, -1, -5, 4
         );
         var res = numsOfIncreasingSubsequences(nums);
         System.out.println("nums of increasing subsequences for: " + nums.toString() + "is " + res);
@@ -20,6 +18,10 @@ public class Recursions {
 
         System.out.println("----- Playing Tower of Hanoi");
         towerOfHanoi(4, 'A', 'C', 'B');
+
+        int[] nums2 = new int[]{1, 7, 3, 5, 2, 8, 10, 24, -1, -5, 4};
+        int res3 = longestIncreasingSubsequence(new int[]{1, 7, 3, 5, 2, 8, 10, 24, -1, -5, 4});
+        System.out.println("longest of increasing subsequences for: " + Arrays.toString(nums2) + "is " + res3);
     }
 
     private static void towerOfHanoi(int ringsOnTower, char fromPeg, char toPeg, char auxPeg) {
@@ -55,6 +57,25 @@ public class Recursions {
             }
         }
         return dp.stream().reduce(0, Integer::sum);
+    }
 
+    private static int longestIncreasingSubsequence(int[] nums) {
+        List<Integer> dp = new ArrayList<>();
+        int max = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            dp.add(1);
+            int currMax = 1;
+
+            for (int j = 0; j <= i - 1; j++) {
+                if (nums[j] < nums[i]) {
+                    currMax = Math.max(currMax, dp.get(j) + 1);
+                }
+            }
+            dp.set(i, currMax);
+            max = Math.max(currMax, max);
+        }
+
+        return max;
     }
 }
